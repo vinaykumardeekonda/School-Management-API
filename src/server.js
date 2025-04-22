@@ -9,6 +9,10 @@ app.use(express.json());
 const port = process.env.PORT;
 app.use('/api/schools', AuthRouter);
 
+app.use('/', (req, res) => {
+    res.send("Hello World!");
+})
+
 db.sequelize.sync({force: false})
 .then(() => {
     console.log("Database connected successfully...");
